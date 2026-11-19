@@ -15,8 +15,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/discover" element={<Discover />} >
-            <Route index element={<Navigate to="swipe" replace />} />
-            <Route path="/discover/swipe" element={<Swipe />} />
+            <Route index element={<Navigate to="swipes" replace />} />
+            <Route path="/discover/swipes" element={<Swipe />} />
             <Route path="/discover/matches" element={<Matches />} />
           </Route>
         </Routes>

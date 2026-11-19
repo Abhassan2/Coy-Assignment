@@ -1,6 +1,5 @@
 import React, { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import { resetSwipes } from "../service/swipeService.js";
 
 function Home() {
@@ -18,7 +17,7 @@ function Home() {
 
       alert("Demo reset successfully!");
 
-      navigate("/discover/swipe", { replace: true });
+      navigate("/discover/swipes", { replace: true });
 
     } catch (error) {
       console.error("Reset failed:", error);
@@ -40,7 +39,7 @@ function Home() {
           count!
         </p>
 
-        <button className="explore-btn" onClick={() => navigate("/swipe")}>
+        <button className="explore-btn" onClick={() => navigate("/discover/swipes")}>
           Get Started →
         </button>
 

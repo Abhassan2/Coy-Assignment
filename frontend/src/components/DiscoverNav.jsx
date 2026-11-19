@@ -6,7 +6,7 @@ function DiscoverNav({ setTab }) {
     <div className="discover-navbar navbar">
       <NavLink 
         onClick={()=> setTab("swipe")}
-        to="/discover/swipe" className="nav-link">
+        to="/discover/swipes" className="nav-link">
         Swipe
       </NavLink>
       <NavLink
