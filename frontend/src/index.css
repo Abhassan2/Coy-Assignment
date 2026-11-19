@@ -1,0 +1,137 @@
+#root, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  gap: 10px;
+  padding: 10px 40px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #eee;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #555;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px 18px;
+  border-radius: 8px;
+  transition: 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #e53935;
+  background-color: #ffe5e5;
+}
+
+.nav-link.active {
+  font-weight: 600;
+}
+
+.match-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+}
+
+.match-popup {
+  width: 100%;
+  max-width: 380px;
+  background: white;
+  border-radius: 20px;
+  padding: 25px;
+  text-align: center;
+  animation: matchPop 0.4s ease;
+}
+
+.match-popup h1 {
+  color: #ec4899;
+}
+
+.match-photo {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 20px auto;
+}
+
+.match-popup button {
+  background: #ec4899;
+  color: white;
+  border: none;
+  padding: 13px 25px;
+  border-radius: 30px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+@keyframes matchPop {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 500px) {
+  .navbar {
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: space-around;
+    gap: 4px;
+    padding: 8px 5px;
+    background-color: #fff;
+    border-top: 1px solid #eee;
+    border-bottom: none;
+    z-index: 1000;
+  }
+
+  .discover-navbar {
+    position: static;
+  }
+
+  .nav-link {
+    flex: 1;
+    justify-content: center;
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px 4px;
+    font-size: 12px;
+    border-radius: 8px;
+  }
+
+  .nav-link svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  body {
+    padding-bottom: 75px;
+  }
+}

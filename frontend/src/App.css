@@ -1,0 +1,438 @@
+/* ==================
+Home Page ============ */
+.home-container {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.welcome-section {
+  text-align: center;
+  max-width: 700px;
+}
+
+.welcome-tag {
+  display: inline-block;
+  background: #fee2e2;
+  color: #dc2626;
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.welcome-section h1 {
+  font-size: clamp(32px, 6vw, 55px);
+  font-weight: 800;
+  margin: 22px 0;
+  color: #1e293b;
+}
+
+.welcome-section h1 span {
+  color: #dc2626;
+}
+
+.welcome-section p {
+  font-size: 17px;
+  color: #64748b;
+  line-height: 1.7;
+}
+
+.explore-btn {
+  margin-top: 25px;
+  padding: 14px 30px;
+  background: #dc2626;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.explore-btn:hover {
+  background: #991b1b;
+  transform: translateY(-3px);
+}
+
+.reset-btn {
+  display: block;
+  margin: 15px auto;
+  padding: 12px 28px;
+  background: white;
+  color: #dc2626;
+  border: 2px solid #dc2626;
+  border-radius: 30px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.reset-btn:hover {
+  background: #fee2e2;
+  transform: translateY(-2px);
+}
+
+/* Discover */
+.discover-container {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 16px 20px;
+  background-color: #f6f3f1;
+}
+
+/* Navigation at the top */
+.discover-container > .navbar {
+  flex-shrink: 0;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  background-color: #dbdbdb;
+  border-radius: 40px;
+  padding: 0;
+}
+
+.discover-container > .navbar .nav-link {
+  background-color: white;
+  margin: 5px;
+  border-radius: 40px;
+  transition: 0.3s ease;
+}
+
+.discover-container > .navbar .nav-link:hover,
+.discover-container > .navbar .nav-link.active {
+  color: #e53935;
+  background-color: #ffe5e5;
+}
+
+.discover-container > .navbar .nav-link.active {
+  font-weight: 600;
+}
+
+/* Card Container */
+.card-container {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  height: min(65vh, 500px);
+}
+
+/* Swipe Crad */
+.swipe-card {
+  width: 100%;
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  transform-origin: center center;
+  will-change: transform;
+  transition: transform 350ms ease;
+  flex-shrink: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: pan-y;
+}
+
+.swipe-card:active {
+  cursor: grabbing;
+}
+
+.swipe-right {
+  transform: translateX(150%) rotate(20deg) !important;
+}
+
+.swipe-left {
+  transform: translateX(-150%) rotate(-20deg) !important;
+}
+
+.swipe-card img {
+  width: 100%;
+  object-fit: cover;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  display: block;
+  pointer-events: none;
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+.swipe-card .info,
+.match-card .info {
+  padding: 5px 20px;
+
+  background: rgba(172, 131, 27, 0.66);
+  background-color: white;
+
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  /* margin-bottom: 10px !important; */
+}
+
+.swipe-card .info h1,
+.match-card .info h1 {
+  font-size: 30px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.swipe-card .info h4,
+.match-card .info h4 {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0 0 8px 0;
+  color: #625f62;
+}
+
+.swipe-card .info p,
+.match-card .info p {
+  font-size: 16px;
+  margin: 0 0 12px 0;
+}
+
+.swipe-card .info > div,
+.match-card .info > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.swipe-card .info > div > span,
+.match-card .info > div > span {
+  background: rgba(65, 50, 14, 0.66);
+  padding: 3px 10px;
+  border-radius: 20px;
+  color: white;
+  font-weight: 200;
+}
+
+/* Action Buttons */
+.actions {
+  position: absolute;
+  bottom: -100px;
+  z-index: 10;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 80px;
+}
+
+.actions .action-btn {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background-color: #dad9da;
+  position: relative;
+  left: 80px;
+}
+
+.actions .action-btn--pass {
+  color: red;
+}
+
+.actions .action-btn--like {
+  color: green;
+}
+
+/* Matches */
+.matches-container {
+  width: 70%;
+}
+
+.matches-container>div {
+  color: #939193;
+}
+
+.matches-container>div:nth-child(2) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.matches-container .match-card {
+  border: 1px solid rgb(192, 187, 187);
+  width: 230px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.match-card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  display: block;
+}
+
+.match-card .info {
+  flex: 1;
+  padding: 5px 10px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.match-card .info h1 {
+  font-size: 20px;
+}
+
+/* ============== 
+Mobile responsiveness 
+===================== */
+@media (max-width: 500px) {
+  .welcome-section p {
+    font-size: 15px;
+  }
+  
+  .discover-container {
+    min-height: 100dvh;
+    padding: 8px 12px 85px;
+  }
+
+  .discover-container > .navbar {
+    position: static;
+    width: 85%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px;
+    padding: 6px 5px;
+    border-radius: 40px;
+    background-color: white;
+    border-top: 1px solid #eee;
+    z-index: 100;
+  }
+
+  .discover-container > .navbar .nav-link {
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    margin: 2px;
+    padding: 8px 4px;
+    border-radius: 40px;
+    font-size: 16px;
+  }
+
+  .discover-container > .navbar .nav-link svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .card-container {
+    width: 85%;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+
+  .swipe-card {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    cursor: grab;
+  }
+
+  .swipe-card img {
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+  }
+
+  .swipe-card .info,
+  .match-card .info {
+    padding: 8px 14px;
+  }
+
+  .swipe-card .info h1,
+  .match-card .info h1 {
+    font-size: 23px;
+  }
+
+  .swipe-card .info h4,
+  .match-card .info h4 {
+    font-size: 14px;
+  }
+
+  .swipe-card .info p,
+  .match-card .info p {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+
+  .swipe-card .info > div,
+  .match-card .info > div {
+    gap: 6px;
+  }
+
+  .swipe-card .info > div > span,
+  .match-card .info > div > span {
+    font-size: 12px;
+    padding: 3px 8px;
+  }
+
+  .actions {
+    display: none;
+  }
+
+  .matches-container {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .matches-container > div:nth-child(2) {
+    gap: 12px;
+    width: 100%;
+    align-self: stretch;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .matches-container .match-card {
+    width: calc(90% - 6px);
+    min-width: 0;
+  }
+
+  .match-card img {
+    height: 180px;
+    object-fit: cover;
+  }
+
+  .match-card .info {
+    padding: 6px 8px;
+  }
+
+  .match-card .info h1 {
+    font-size: 24px;
+  }
+
+  .match-card .info h4 {
+    font-size: 16px;
+  }
+
+  .match-card .info p {
+    font-size: 15px;
+  }
+
+  .match-card .info > div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .match-card .info > div > span {
+    font-size: 13px;
+    padding: 3px 7px;
+  }
+}
