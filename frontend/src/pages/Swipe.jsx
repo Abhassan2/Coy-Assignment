@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useCallback } from "react";
 import SwipeCard from "../components/SwipeCard";
 import { useOutletContext } from "react-router-dom";
 import ActionButtons from "../components/ActionButtons";
@@ -21,30 +21,33 @@ export default function Swipe() {
   const draggingRef = useRef(false);
   const visibleCards = swipeCards.slice(currentIndex, currentIndex + 3);
 
-  const handleDragStart = (e) => {
-    if (direction || loading) return;
+  const handleDragStart = useCallback(
+    (e) => {
+      if (direction || loading) return;
 
-    draggingRef.current = true;
-    startX.current = e.clientX;
+      draggingRef.current = true;
+      startX.current = e.clientX;
 
-    dragXRef.current = 0;
+      dragXRef.current = 0;
 
-    setDragX(0);
-    setIsDragging(true);
+      setDragX(0);
+      setIsDragging(true);
 
-    e.currentTarget.setPointerCapture(e.pointerId);
-  };
+      e.currentTarget.setPointerCapture(e.pointerId);
+    },
+    [direction, loading],
+  );
 
-  const handleDragMove = (e) => {
+  const handleDragMove = useCallback((e) => {
     if (!draggingRef.current) return;
 
     const distance = e.clientX - startX.current;
 
     dragXRef.current = distance;
     setDragX(distance);
-  };
+  }, []);
 
-  const handleDragEnd = () => {
+  const handleDragEnd = useCallback(() => {
     if (!draggingRef.current) return;
 
     draggingRef.current = false;
@@ -60,7 +63,7 @@ export default function Swipe() {
       dragXRef.current = 0;
       setDragX(0);
     }
-  };
+  }, [setDirection]);
 
   const handleSwipe = (dir) => {
     if (direction || currentIndex >= swipeCards.length) return;
