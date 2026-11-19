@@ -8,7 +8,7 @@ import MatchesRouter from './routes/matches.js';
 import SwipesRouter from './routes/swipes.js';
 
 const app = express();
-app.use(cors({origin: process.env.CLIENT_URI || "http://localhost:3000"}));
+app.use(cors({origin: process.env.CLIENT_URI || "http://localhost:5173"}));
 app.use(express.json());
 
 app.get("/", (req, res) => res.json({ ok: true, message: "Server running!" }));
