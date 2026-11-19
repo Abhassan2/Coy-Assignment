@@ -119,10 +119,13 @@ export default function Swipe() {
           onDragEnd={index === 0 ? handleDragEnd : undefined}
         />
       ))}
-      <ActionButtons
-        onLike={() => handleSwipe("right")}
-        onPass={() => handleSwipe("left")}
-      />
+
+      {visibleCards.length !== 0 && (
+        <ActionButtons
+          onLike={() => handleSwipe("right")}
+          onPass={() => handleSwipe("left")}
+        />
+      )}
 
       {/* Match popup */}
       <MatchPopup
